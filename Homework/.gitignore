@@ -6,3 +6,21 @@
 *.war
 *.ear
 
+hs_err_pid*
+.settings/
+.project
+.springBeans
+**/target/
+/commit.txt
+/*/logs/
+/*/wrk/
+effective-pon.xml
+effective-settings.xml
+/*/hwt/
+.cache
+.idea/
+*.iml
+*.log
+*.lck
+*/dependency-reduced-pom.xml
+node_modules
