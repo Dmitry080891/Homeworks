@@ -1,0 +1,16 @@
+
+x
+java:S1192"VDefine a constant instead of duplicating this literal "ĞŸĞµÑ‚Ñ Ğ²Ñ‹Ğ³Ñ€Ğ°Ğ»" 3 times.(Ÿ³ÑÛùÿÿÿÿ8÷Ÿ¤ç¸1
+s
+java:S1192"VDefine a constant instead of duplicating this literal "Ğ’Ğ°ÑÑ Ğ²Ñ‹Ğ³Ñ€Ğ°Ğ»" 3 times.(í¤Ìû8÷Ÿ¤ç¸1
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(£¬¹Ø
+G	java:S106
+"+Replace this use of System.out by a logger.(–ˆŠ²8¡ ¤ç¸1
+L	java:S106"+Replace this use of System.out by a logger.(Ûˆ‹ôûÿÿÿÿ8¡ ¤ç¸1
+G	java:S106"+Replace this use of System.out by a logger.(í¤Ìû8¡ ¤ç¸1
+L	java:S106"+Replace this use of System.out by a logger.(Ÿ³ÑÛùÿÿÿÿ8¡ ¤ç¸1
+F	java:S106"+Replace this use of System.out by a logger.(ô©ßU8¡ ¤ç¸1
+L	java:S106"+Replace this use of System.out by a logger.(‘£€œüÿÿÿÿ8¡ ¤ç¸1
+L	java:S106"+Replace this use of System.out by a logger.(ŒÅÓøÿÿÿÿ8¡ ¤ç¸1
+F	java:S106"+Replace this use of System.out by a logger.(µâ¢%8¡ ¤ç¸1
+G	java:S106"+Replace this use of System.out by a logger.(¶äõÕ8¡ ¤ç¸1
