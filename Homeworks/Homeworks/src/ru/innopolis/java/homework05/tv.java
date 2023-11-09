@@ -28,10 +28,10 @@ public class tv {
         }
         public void setVolumeLevel(int volumeLevel) {
 
-            if (volumeLevel >= 0 && volumeLevel <= 100) {
-                this.volumeLevel = volumeLevel;
+            if (volumeLevel < 0 || volumeLevel > 100) {
+               throw new RuntimeException("Введенное значение должно быть >= 0 и <= 100");
             }
-            else throw new RuntimeException("Введенное значение должно быть >= 0 и <= 100");
+            this.volumeLevel = volumeLevel;
         }
          public boolean isTVon() {return isTVon; }
         public void setTVon(boolean TVon) {isTVon = TVon;}
