@@ -5,7 +5,7 @@ public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int minCount = 0;
-        int maxCount = 2;
+        int maxCount = 10;
 
         Television [] TV = new Television[maxCount];
 
