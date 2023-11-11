@@ -1,14 +1,13 @@
 package ru.innopolis.java.homework05;
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class app {
+public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         int minCount = 0;
-        int maxCount = 10;
+        int maxCount = 2;
 
-        tv [] TV = new tv[maxCount];
+        Television [] TV = new Television[maxCount];
 
         for (int i = minCount; i < maxCount; i++) {
             System.out.println("Введите фирму телевизора");
@@ -20,10 +19,10 @@ public class app {
             int volumeLevel = scanner.nextInt();
             scanner.nextLine();
             System.out.println("Включен ли телевизор? true или false");
-            boolean isTVon = scanner.nextBoolean();
+            boolean isTVOn = scanner.nextBoolean();
             scanner.nextLine();
-            System.out.println(isTVon);
-             tv newtv = new tv(name, channelIncluded, volumeLevel, isTVon);
+            System.out.println(isTVOn);
+            Television newtv = new Television(name, channelIncluded, volumeLevel, isTVOn);
 
             TV[i] = newtv;
             System.out.println(newtv);
@@ -32,8 +31,8 @@ public class app {
             int maxVolume = scanner.nextInt();
             scanner.nextLine();
 
-            for (tv print : TV )
-                if ((print.getVolumeLevel() < maxVolume && print.isTVon()) == true) {
+            for (Television print : TV )
+                if ((print.getVolumeLevel() < maxVolume && print.isTVOn()) == true) {
                    // Arrays.sort(TV);
                      System.out.println("Включен телевизор " + print.getName() + ", на громкости " + print.getVolumeLevel());
 

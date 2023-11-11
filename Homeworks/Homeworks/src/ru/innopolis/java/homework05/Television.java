@@ -1,19 +1,19 @@
 package ru.innopolis.java.homework05;
 import java.util.Objects;
 import java.util.StringJoiner;
-public class tv {
+public class Television {
         private String name; //название телевизора
         private int channelIncluded; //номер канала
         private int volumeLevel; //уровень громкости
-        private boolean isTVon;   //
-        public tv(String name) {
+        private boolean isTVOn;   //
+        public Television(String name) {
             this.name = name;
         }
-        public tv(String name, int channelIncluded, int volumeLevel, boolean isTVon) {
+        public Television(String name, int channelIncluded, int volumeLevel, boolean isTVOn) {
             this.name = name;
             this.channelIncluded = channelIncluded;
             this.volumeLevel = volumeLevel;
-            this.isTVon = isTVon;
+            this.isTVOn = isTVOn;
         }
         public String getName() {
             return name;
@@ -33,15 +33,22 @@ public class tv {
             }
             this.volumeLevel = volumeLevel;
         }
-         public boolean isTVon() {return isTVon; }
-        public void setTVon(boolean TVon) {isTVon = TVon;}
-        @Override
+
+    public boolean isTVOn() {
+        return isTVOn;
+    }
+
+    public void setTVOn(boolean TVOn) {
+        isTVOn = TVOn;
+    }
+
+    @Override
         public String toString() {
-            return new StringJoiner(", ", tv.class.getSimpleName() + "[", "]")
+            return new StringJoiner(", ", Television.class.getSimpleName() + "[", "]")
                     .add("Название телевизора " + name )
                     .add("Номер включенного канала " + channelIncluded)
                     .add("Уровень громкости " + volumeLevel)
-                    .add("Телевизор включен? " + isTVon)
+                    .add("Телевизор включен? " + isTVOn)
                     .toString();
         }
 
@@ -49,10 +56,10 @@ public class tv {
         public boolean equals(Object o) {
             if (this == o) return true;
             if (o == null || getClass() != o.getClass()) return false;
-            tv tv = (tv) o;
+            Television tv = (Television) o;
             return channelIncluded == tv.channelIncluded &&
                     getVolumeLevel() == tv.getVolumeLevel() &&
-                    isTVon == tv.isTVon &&
+                    isTVOn == tv.isTVOn &&
                     Objects.equals(getName(), tv.getName());
         }
 
@@ -61,7 +68,7 @@ public class tv {
             return Objects.hash(getName(),
                     channelIncluded,
                     getVolumeLevel(),
-                    isTVon
+                    isTVOn
             );
         }
     }
