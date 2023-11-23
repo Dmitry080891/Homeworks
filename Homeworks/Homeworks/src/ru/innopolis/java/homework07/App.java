@@ -5,20 +5,21 @@ import java.time.LocalDate;
 
 public class App {
     public static void main(String[] args) {
-        Product product1 = new Product("Хлеб", 40);
-        Product product2 = new Product("Молоко", 60);
-        DiscountProduct product3 = new DiscountProduct("Торт", 800, 15, LocalDate.now());
-        DiscountProduct product4 = new DiscountProduct("Кофе растворимый", 432, 50, LocalDate.now());
-        Product product5 = new Product("888", 78);
-        Product product6 = new Product("ен", 78);
-        Product product7 = new Product("Шоколадка", 0);
-        System.out.println(product1);
-        System.out.println(product2);
-        System.out.println(product3);
-        System.out.println(product4);
-        System.out.println(product5);
-        System.out.println(product6);
-        System.out.println(product7);
+        Product[] products = new Product[5];
+        DiscountProduct[] discountProducts = new DiscountProduct[2];
+        products[0] = new Product("Хлеб", 40);
+        products[1] = new Product("Молоко", 60);
+        products[2] = new Product("888", 78);
+        products[3] = new Product("ен", 78);
+        products[4] = new Product("Шоколадка", 0);
+        discountProducts[0] = new DiscountProduct("Торт", 800, 15, LocalDate.now());
+        discountProducts[1] = new DiscountProduct("Кофе растворимый", 432, 50, LocalDate.now());
+        for (DiscountProduct printDiscountProduct : discountProducts) {
+            System.out.println(printDiscountProduct);
+        }
+        for (Product printProduct : products) {
+            System.out.println(printProduct);
+        }
 
     }
 }
