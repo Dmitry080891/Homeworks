@@ -8,30 +8,36 @@ public class Product {
         this.name = name;
         this.cost = cost;
     }
+    public Product() {
+
+    }
 
     public String getName() {
-
         return name;
     }
-    public void setName(String name) throws RuntimeException {
+
+    public void setName(String name) {
         if (name == null || name.isEmpty()) {
             throw new RuntimeException("Название продукта неможет быть пустой строкой, оно должно быть");
         }
-        else if (!Pattern.matches("[а-яА-Я]+", name)) {
-            throw new RuntimeException("Недопустимое имя продукта" + name);
+        else if (!Pattern.matches("[а-яА-Я\s]+", name)) {
+            throw new RuntimeException("Недопустимое имя продукта");
         }
         else if (name.length() <= 2) {
-            throw new RuntimeException("Недопустимое имя продукта" + name);
+            throw new RuntimeException("Недопустимое имя продукта");
         }
         else {
             this.name = name;
         }
     }
+
+
     public double getCost() {
+
         return cost;
     }
 
-    public void setCost(double cost) throws RuntimeException {
+    public void setCost(double cost)  {
         if (cost <= 0) {
             throw new RuntimeException("Стоимость продукта не может быть <= 0");
         }
@@ -47,6 +53,7 @@ public class Product {
         return Double.compare(cost, product.cost) == 0 && Objects.equals(name, product.name);    }
     @Override
     public int hashCode() {
+
         return Objects.hash(name, cost);
     }
 
@@ -54,6 +61,7 @@ public class Product {
     @Override
      public String toString()
     {
-     return "Обычный продукт " + getName() + " = " + getCost();
+
+        return "Обычный продукт " + name + " стоимостью " + cost;
     }
 }
