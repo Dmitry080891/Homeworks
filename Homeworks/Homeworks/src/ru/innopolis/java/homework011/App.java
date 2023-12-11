@@ -1,12 +1,9 @@
 package ru.innopolis.java.homework011;
-
 import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
-import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 public class App {
     public static void main(String[] args) {
         String carCatalog = "a123me|Mercedes|White|0|8300000\n" +
@@ -20,7 +17,6 @@ public class App {
                 "l097df|Toyota|Black|108000|780000\n" +
                 "y876wd|Toyota|Black|160000|1000000";
         List<Car> carList = new ArrayList<>();
-
         String[] inputStrArray = carCatalog.split("\n");
         int inputStrLength= inputStrArray.length;
     for(String inputStr : inputStrArray) {
@@ -33,11 +29,8 @@ public class App {
         );
         carList.add(newCar);
     }
-
         Consumer<Car> printCatalog = car -> System.out.println(car.toString());
         Consumer<Car> printIdCar = car -> System.out.println(car.getIdCar());
-        //Predicate<Car> mileageToFind = car -> car.getMileageCar() == 0;
-       // Predicate<Car> colorToFind = car -> Objects.equals(car.getColorCar(), "Black");
         Predicate<Car> colorOrMileageToFind = car -> car.getMileageCar() == 0 ||
                 Objects.equals(car.getColorCar(), "Black");
         System.out.println("Автомобили в базе: ");
@@ -51,40 +44,28 @@ public class App {
                 .forEach(printIdCar);
        // 2) Количество уникальных моделей в ценовом диапазоне от n до m тыс.
         System.out.println("Количество уникальных моделей в ценовом диапазоне от 100 тыс. до 1 млн: ");
-        Predicate<Car> priceToFind = car -> car.getPriceCar() > 100000 && car.getPriceCar() < 1000000;
-        //Consumer<Car> brandCar = car -> System.out.println(car.getBrandCar());
-        Stream<Car> priceToFindStream = carList.stream();
-        priceToFindStream
+        Predicate<Car> priceToFind = car -> car.getPriceCar() >= 100000 && car.getPriceCar() <= 1000000;
+        Map<String, Long> x = carList.stream()
                 .filter(priceToFind)
                 .distinct()
-                //.collect(Collectors.groupingBy(car -> car.getBrandCar(), Collectors.counting()))
-                .count();
-
+                .collect(Collectors.groupingBy(Car::getBrandCar, Collectors.counting()));
+        System.out.println(x);
 
    // 3) Вывести цвет автомобиля с минимальной стоимостью.
         System.out.println("Цвет автомобиля с минимальной стоимостью: ");
         Consumer<Car> printColorMinPrice = car -> System.out.println(car.getColorCar());
         Stream<Car> priceMinStream = carList.stream();
         priceMinStream
-                //.min((car.getPriceCar, car.getPriceCar) -> Double.compare(car.getPriceCar))
-                .sorted(Comparator.comparingDouble(Car::getPriceCar))
-                .findFirst();
-                //.forEach(printColorMinPrice);
+                .min(Comparator.comparingDouble(Car::getPriceCar))
+                .ifPresent(printColorMinPrice);
 
      //   4) Среднюю стоимость искомой модели modelToFind
         System.out.println("Средняя стоимость искомой модели Toyota: ");
         Predicate<Car> brandToFind = car ->  Objects.equals(car.getBrandCar(), "Toyota");
-        //Stream<Car> midlePriceBrandStream = carList.stream();
-       // midlePriceBrandStream
-     //   OptionalDouble averageDouble = carList.stream()
-
-        //        .filter(brandToFind)
-            /*    .mapToDouble(car -> Double.doubleValue(car.getPriceCar()))
-                .summaryStatistics();
-                //.map(Double::valueOf)*/
-              //  .reduce((car.getPriceCar(0), car.getPriceCar(1)) -> car.getPriceCar(0) + car.getPriceCar(1) )
-               // .sum(car.getBrandCar());
-
-
+        Stream<Car> midlePriceBrandStream = carList.stream();
+        Double average = midlePriceBrandStream
+                .filter(brandToFind)
+                .collect(Collectors.averagingDouble(Car::getPriceCar));
+        System.out.println(average);
     }
 }
