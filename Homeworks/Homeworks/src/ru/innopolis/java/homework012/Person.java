@@ -8,23 +8,17 @@ import java.util.Objects;
 public class Person {
     private String lastName;
     private String name;
-    private String fatherName;
+    private String patronimic;
     private Date birthdate;
-   /* private Date birthdate(String date) {
-        try {
-            return new SimpleDateFormat("yyyy-MM-dd").parse(date);
-        } catch (ParseException e) {
-            return null;
-        }
-    }*/
+
     private Long phoneNamber;
     private String sex;
     private Integer age;
 
-    public Person(String lastName, String name, String fatherName, Date birthdate, Long phoneNamber, String sex, Integer age) {
+    public Person(String lastName, String name, String patronimic, Date birthdate, Long phoneNamber, String sex, Integer age) {
         this.lastName = lastName;
         this.name = name;
-        this.fatherName = fatherName;
+        this.patronimic = patronimic;
         this.birthdate = birthdate;
         this.phoneNamber = phoneNamber;
         this.sex = sex;
@@ -50,15 +44,16 @@ public class Person {
         this.name = name;
     }
 
-    public String getFatherName() {
-        return fatherName;
+    public String getPatronimic() {
+        return patronimic;
     }
 
-    public void setFatherName(String fatherName) {
-        this.fatherName = fatherName;
+    public void setPatronimic(String fatherName) {
+        this.patronimic = patronimic;
     }
 
-    public Date getBirthdate() {
+
+ public Date getBirthdate() {
         return birthdate;
     }
 
@@ -95,24 +90,24 @@ public class Person {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
-        return Objects.equals(lastName, person.lastName) && Objects.equals(name, person.name) && Objects.equals(fatherName, person.fatherName) && Objects.equals(birthdate, person.birthdate) && Objects.equals(phoneNamber, person.phoneNamber) && Objects.equals(sex, person.sex) && Objects.equals(age, person.age);
+        return Objects.equals(lastName, person.lastName) && Objects.equals(name, person.name) && Objects.equals(patronimic, person.patronimic) && Objects.equals(birthdate, person.birthdate) && Objects.equals(phoneNamber, person.phoneNamber) && Objects.equals(sex, person.sex) && Objects.equals(age, person.age);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(lastName, name, fatherName, birthdate, phoneNamber, sex, age);
+        return Objects.hash(lastName, name, patronimic, birthdate, phoneNamber, sex, age);
     }
 
     @Override
     public String toString() {
         return "Person{" +
-                "lastName='" + lastName + '\'' +
-                ", name='" + name + '\'' +
-                ", fatherName='" + fatherName + '\'' +
-                ", birthdate='" + birthdate + '\'' +
-                ", phoneNamber=" + phoneNamber +
-                ", sex='" + sex + '\'' +
-                ", age=" + age +
+                "Фамилия: " + lastName + '\'' +
+                ", имя: " + name + '\'' +
+                ", отчество: " + patronimic + '\'' +
+                ", дата рождения: " + birthdate + '\'' +
+                ", номер телефона: " + phoneNamber +
+                ", пол: " + sex + '\'' +
+                ", возраст: " + age +
                 '}';
     }
 }
