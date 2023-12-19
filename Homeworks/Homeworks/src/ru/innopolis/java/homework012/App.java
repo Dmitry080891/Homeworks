@@ -20,15 +20,15 @@ public class App {
             List<Person> personList = new ArrayList<>();
             String[] inputString = personInfo.split("\\s+");
             try {
-                        Person newPerson = new Person(
-                        inputString[0],
-                        inputString[1],
-                        inputString[2],
-                        birthdate.parse(inputString[3]),
-                        Long.parseLong(inputString[4]),
-                        inputString[5],
-                        Integer.parseInt(inputString[6]));
-                personList.add(newPerson);
+                    Person newPerson = new Person();
+                    newPerson.setLastName(inputString[0]);
+                    newPerson.setName(inputString[1]);
+                    newPerson.setPatronimic(inputString[2]);
+                    newPerson.setBirthdate(birthdate.parse(inputString[3]));
+                    newPerson.setPhoneNamber(Long.parseLong(inputString[4]));
+                    newPerson.setSex(inputString[5]);
+                    newPerson.setAge(Integer.parseInt(inputString[6]));
+                    personList.add(newPerson);
             } catch (InputMismatchException e) {
                 System.out.println("Invalid value");
                 scanner.nextLine();
