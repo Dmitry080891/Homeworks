@@ -33,6 +33,9 @@ public class Person {
     }
 
     public void setLastName(String lastName) {
+        if (lastName == null || lastName == " ") {
+            throw new RuntimeException("Фамилия должна быть");
+        }
         this.lastName = lastName;
     }
 
@@ -41,14 +44,19 @@ public class Person {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name == null) {
+            throw new RuntimeException("Имя должно быть");
+        } this.name = name;
     }
 
     public String getPatronimic() {
         return patronimic;
     }
 
-    public void setPatronimic(String fatherName) {
+    public void setPatronimic(String patronimic) {
+        if (patronimic == null) {
+            throw new RuntimeException("Отчество должно быть");
+        }
         this.patronimic = patronimic;
     }
 
@@ -58,6 +66,9 @@ public class Person {
     }
 
     public void setBirthdate(Date birthdate) {
+        if (birthdate == null) {
+            throw new RuntimeException("Дата рождения должна быть");
+        }
         this.birthdate = birthdate;
     }
 
@@ -66,7 +77,9 @@ public class Person {
     }
 
     public void setPhoneNamber(Long phoneNamber) {
-        this.phoneNamber = phoneNamber;
+        if (phoneNamber == null) {
+            throw new RuntimeException("Номер телефона должен быть");
+        }this.phoneNamber = phoneNamber;
     }
 
     public String getSex() {
@@ -74,6 +87,8 @@ public class Person {
     }
 
     public void setSex(String sex) {
+        if (sex == null) {
+            throw new RuntimeException("Пол должен быть указан"); }
         this.sex = sex;
     }
 
@@ -82,6 +97,8 @@ public class Person {
     }
 
     public void setAge(Integer age) {
+        if (age == null) {
+            throw new RuntimeException("Возраст должен быть указан"); }
         this.age = age;
     }
 
