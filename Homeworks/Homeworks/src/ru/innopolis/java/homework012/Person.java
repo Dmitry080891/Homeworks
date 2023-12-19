@@ -10,7 +10,6 @@ public class Person {
     private String name;
     private String patronimic;
     private Date birthdate;
-
     private Long phoneNamber;
     private String sex;
     private Integer age;

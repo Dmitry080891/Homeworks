@@ -34,7 +34,6 @@ public class App {
                 scanner.nextLine();
             } finally {
                        i++;
-
             }
             for (Person printPerson : personList) {
                 System.out.println(printPerson);
