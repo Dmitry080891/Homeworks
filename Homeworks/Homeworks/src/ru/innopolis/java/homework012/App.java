@@ -1,6 +1,5 @@
 package ru.innopolis.java.homework012;
 
-
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,7 +12,7 @@ public class App {
         Scanner scannerCount = new Scanner(System.in);
         int count = scannerCount.nextInt();
         int i = 0;
-        System.out.println("Введите: Фамилия Имя Отчество датарождения номертелефона пол возраст; разделяя пробелом");
+        System.out.println("Введите: Фамилия Имя Отчество дата рождения (в формате дд.мм.гггг) номертелефона (11 цифр) пол(m либо f) возраст; разделяя пробелом");
         while (i < count) {
             Scanner scanner = new Scanner(System.in);
             String personInfo = scanner.nextLine();
