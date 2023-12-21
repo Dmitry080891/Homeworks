@@ -160,7 +160,7 @@ public class Person {
     public String toString() {
         return "Person{" +
                 "Фамилия: " + lastName +
-                ", имя: " + name + '\'' +
+                ", имя: " + name +
                 ", отчество: " + patronimic +
                 ", дата рождения: " + birthdate +
                 ", номер телефона: " + phoneNamber +

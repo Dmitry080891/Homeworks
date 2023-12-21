@@ -6,7 +6,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Pattern;
-
 public class App {
     public static void main(String[] args) throws ParseException, IOException {
         DateFormat birthdate = new SimpleDateFormat("dd.MM.yyyy");
@@ -19,7 +18,8 @@ public class App {
             }
             int i = 0;
             while (i < count) {
-            System.out.println("Введите: Фамилия Имя Отчество дата рождения (в формате дд.мм.гггг) номертелефона (11 цифр) пол(m либо f) возраст; разделяя пробелом");
+            System.out.println("Введите: Фамилия Имя Отчество дата рождения (в формате дд.мм.гггг) " +
+                    "номертелефона (11 цифр) пол(m либо f) возраст; разделяя пробелом");
             Scanner scanner = new Scanner(System.in);
             String personInfo = scanner.nextLine();
             List<Person> personList = new ArrayList<>();
@@ -53,7 +53,8 @@ public class App {
                 System.out.println(printPerson);
             }
 
-                try(FileWriter writer = new FileWriter(inputString[0]))
+            String pathFile = "C:\\Innopolis_homework\\Homeworks\\Homeworks\\src\\ru\\innopolis\\java\\homework012\\output.txt";
+                    try(FileWriter writer = new FileWriter(pathFile))
                 {
                     String text = personList.toString();
                     writer.write(text);
