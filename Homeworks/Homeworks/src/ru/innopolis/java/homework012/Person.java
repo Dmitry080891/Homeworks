@@ -3,6 +3,7 @@ package ru.innopolis.java.homework012;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.InputMismatchException;
 import java.util.Objects;
 import java.util.regex.Pattern;
 
@@ -34,13 +35,13 @@ public class Person {
 
     public void setLastName(String lastName) {
         if (lastName == null || lastName.isEmpty()) {
-            throw new RuntimeException("Фамилия не может быть пустой строкой, она должна быть");
+            throw new InputMismatchException("Фамилия не может быть пустой строкой, она должна быть");
         }
         else if (!Pattern.matches("[а-яА-Я\s]+", lastName)) {
-            throw new RuntimeException("Недопустимые параметры ввода");
+            throw new InputMismatchException("Фамилия должно быть написано кирилицей");
         }
         else if (lastName.length() <= 2) {
-            throw new RuntimeException("Недопустимые параметры ввода");
+            throw new InputMismatchException("Фамилия не может быть колоче 2 букв");
         }
         else {
              this.lastName = lastName;
@@ -52,13 +53,13 @@ public class Person {
 
     public void setName(String name) {
         if (name == null || name.isEmpty()) {
-            throw new RuntimeException("Имя не может быть пустой строкой, оно должно быть");
+            throw new InputMismatchException("Имя не может быть пустой строкой, оно должно быть");
         }
         else if (!Pattern.matches("[а-яА-Я\s]+", name)) {
-            throw new RuntimeException("Недопустимые параметры ввода");
+            throw new InputMismatchException("Имя должно быть написано кирилицей");
         }
         else if (name.length() <= 2) {
-            throw new RuntimeException("Недопустимые параметры ввода");
+            throw new InputMismatchException("Имя не может быть колоче 2 букв");
         }
         else {
             this.name = name;
@@ -70,13 +71,13 @@ public class Person {
 
     public void setPatronimic(String patronimic) {
         if (patronimic == null || patronimic.isEmpty()) {
-            throw new RuntimeException("Отчество не может быть пустой строкой, оно должно быть");
+            throw new InputMismatchException("Отчество не может быть пустой строкой, оно должно быть");
         }
         else if (!Pattern.matches("[а-яА-Я\s]+", patronimic)) {
-            throw new RuntimeException("Недопустимые параметры ввода");
+            throw new InputMismatchException("Отчество должно быть написано кирилицей");
         }
         else if (patronimic.length() <= 2) {
-            throw new RuntimeException("Недопустимые параметры ввода");
+            throw new InputMismatchException("Отчество не может быть колоче 2 букв");
         }
         else {
             this.patronimic = patronimic;
@@ -90,7 +91,7 @@ public class Person {
 
     public void setBirthdate(Date birthdate) {
         if (birthdate == null) {
-            throw new RuntimeException("Дата рождения должна быть");
+            throw new InputMismatchException("Дата рождения должна быть");
         }
          this.birthdate = birthdate;
     }
@@ -100,14 +101,12 @@ public class Person {
     }
 
     public void setPhoneNamber(Long phoneNamber) {
-      /*  if (phoneNamber == null || phoneNamber.isEmpty()) {
-            throw new RuntimeException("Номер телефона должен быть указан");
+        if (phoneNamber == null || phoneNamber==0L) {
+            throw new InputMismatchException("Номер телефона должен быть указан");
         }
-        else if (!Pattern.matches("[0-9]+", phoneNamber)) {
-            throw new RuntimeException("Недопустимые параметры ввода");
-        }*/
-         if (phoneNamber.longValue() < 11) {
-            throw new RuntimeException("Недопустимые параметры ввода");
+
+         else if (Long.toString(phoneNamber).length() < 11) {
+            throw new InputMismatchException("Нoмер телефона долже быть состоять из 11 цифр, например 89609609609");
         }
         else {this.phoneNamber = phoneNamber;}
     }
@@ -118,13 +117,13 @@ public class Person {
 
     public void setSex(String sex) {
         if (sex == null || sex.isEmpty()) {
-            throw new RuntimeException("Пол должен быть указан");
+            throw new InputMismatchException("Пол должен быть указан");
         }
         else if (!Pattern.matches("[fm]+", sex)) {
-            throw new RuntimeException("Недопустимые параметры ввода");
+            throw new InputMismatchException("Необходимо ввести m (male - мужчина) или f (female - женщина)");
         }
         else if (sex.length() > 1) {
-            throw new RuntimeException("Недопустимые параметры ввода");
+            throw new InputMismatchException("Должен быть указан только 1 символ");
         }
         else {
         this.sex = sex;}
@@ -136,8 +135,12 @@ public class Person {
 
     public void setAge(Integer age) {
         if (age == null) {
-            throw new RuntimeException("Возраст должен быть указан"); }
-        this.age = age;
+            throw new InputMismatchException("Возраст должен быть указан"); }
+        else if (age < 0) {
+            throw new InputMismatchException ("Возраст не должен быть отрицательным");
+        }
+        else {
+        this.age = age;}
     }
 
      @Override
@@ -156,12 +159,12 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "Фамилия: " + lastName + '\'' +
+                "Фамилия: " + lastName +
                 ", имя: " + name + '\'' +
-                ", отчество: " + patronimic + '\'' +
-                ", дата рождения: " + birthdate + '\'' +
+                ", отчество: " + patronimic +
+                ", дата рождения: " + birthdate +
                 ", номер телефона: " + phoneNamber +
-                ", пол: " + sex + '\'' +
+                ", пол: " + sex +
                 ", возраст: " + age +
                 '}';
     }
