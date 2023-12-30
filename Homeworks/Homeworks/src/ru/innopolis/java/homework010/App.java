@@ -1,11 +1,6 @@
 package ru.innopolis.java.homework010;
 import java.util.*;
-import java.lang.reflect.Array;
 import java.util.Arrays;
-import java.util.Scanner;
-import java.util.function.Predicate;
-
-
 public class App {
     public static void main(String[] args) {
         Random rnd = new Random();
@@ -31,6 +26,6 @@ public class App {
             return true;
         };
         int[] sumOfDigitsEvenNumber = Sequence.filter(rndArray, evenNumbersSumCondition);
-        System.out.println("Сумма массива: " +Arrays.toString(sumOfDigitsEvenNumber));
+        //System.out.println("Сумма массива: " +Arrays.toString(sumOfDigitsEvenNumber));
         }
 }
