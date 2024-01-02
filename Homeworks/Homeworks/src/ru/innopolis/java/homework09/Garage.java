@@ -20,7 +20,7 @@ public class Garage {
         this.parkedCars.add(car);
     }
     //public PerformanceCar tuningCar (PerformanceCar performanceCar, String addOns){
-   //     switch (addOns){
+   //     switch (parkedCars){
     //        case ("SportCar"):
       //  }
    // }
