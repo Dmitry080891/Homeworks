@@ -22,15 +22,15 @@ public class OrderController {
      * get - получить данные по ссылке
      */
     @GetMapping
-    public String getUsersPage(Model model) {
+    public String getOrderAll(Model model) {
         model.addAttribute("orders", orderService.getAll());
+        return "orders";}
+
+    public String getOrderID(Model model) {
+        model.addAttribute("orders", orderService.getId());
         return "orders";
     }
-
-  //  @GetMapping
-    //public String get (Model model) {
-      //  model.addAttribute("orders", orderService.getProductName());
-        //return "orders";
-    //}
-
 }
+
+
+

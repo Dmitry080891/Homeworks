@@ -17,7 +17,7 @@ import java.util.List;
     @Builder
     public class Order {
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        @GeneratedValue(strategy = GenerationType.SEQUENCE)
         private Long id;
 
         @Column(name = "product_name")
@@ -25,11 +25,8 @@ import java.util.List;
         @Column(name = "product_price")
         private Integer price;
 
+    @OneToMany(mappedBy="orders")
+    private List<Calendar> calendarList;
 
-        @OneToMany(mappedBy = "order")
-        private List<Customer> customers;
-     //   @ManyToOne
-     //   @JoinColumn(name="customer_id", nullable = false)
-     //   private Customer customer;
     }
 

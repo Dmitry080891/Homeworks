@@ -15,7 +15,7 @@ import java.util.List;
 @Builder
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @Column(name = "first_name")
@@ -25,6 +25,6 @@ public class Customer {
     @Column(name = "phone_number")
     private Long phone;
 
-    @OneToMany(mappedBy = "customer")
-    private List<Order> orders;
+    @OneToMany(mappedBy = "customers")
+   private List<Calendar> calendarList;
 }

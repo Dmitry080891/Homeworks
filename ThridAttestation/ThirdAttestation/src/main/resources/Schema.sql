@@ -1,29 +1,30 @@
---создание схемы данных магазина
+--создание схемы данных онлайн записи
 create schema if not exists online_record;
 
--- таблица продуктов
+-- таблица заказчиков
 create table if not exists online_record.customer
 (
-    id integer primary key, -- идентификатор строки,
+    id bigint primary key, -- идентификатор строки,
     -- определяем столбцы
     firstName varchar(100), -- имя 100 символов
     lastName varchar(100), -- фамилия 100 символов,
     phone bigint  -- номер телефона
     );
+-- таблица предоставляемых услуг
 create table if not exists online_record.order
 (
-    id integer primary key, -- идентификатор строки,
+    id bigint primary key, -- идентификатор строки,
     -- определяем столбцы
     productName varchar(100), -- описание услуги
     price integer -- цена услуги
     );
-
+-- таблица даты и впемени
 create table if not exists online_record.calendar
 (
-    id integer primary key, -- идентификатор строки,
+    id bigint primary key, -- идентификатор строки,
     -- определяем столбцы
-    dateOrder DATA, -- дата услуги
-    timeOrder TIME -- время услуги
+    dateOrder date, -- дата услуги
+    timeOrder time -- время услуги
     );
 
 insert into online_record.customer(id, firstName, lastName, phone)
@@ -46,11 +47,11 @@ values
 
 insert into online_record.calendar(id, dateOrder, timeOrder)
 values
-    (1, 15.02.2024, 9:00),
-    (2, 15.02.2024, 12:00),
-    (3, 15.02.2024, 15:00),
-    (4, 15.02.2024, 18:00),
-    (5, 16.02.2024, 9:00),
-    (6, 16.02.2024, 12:00),
-    (7, 16.02.2024, 15:00),
-    (8, 16.02.2024, 18:00);
+    (1, '15-02-2024', '9:00:00'),
+    (2, '15-02-2024', '12:00'),
+    (3, '15-02-2024', '15:00'),
+    (4, '15-02-2024', '18:00'),
+    (5, '16-02-2024', '9:00'),
+    (6, '16-02-2024', '12:00'),
+    (7, '16-02-2024', '15:00'),
+    (8, '16-02-2024', '18:00');

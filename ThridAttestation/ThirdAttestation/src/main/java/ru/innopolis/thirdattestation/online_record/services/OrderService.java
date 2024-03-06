@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface OrderService {
     List<Order> getAll();
+    List<Order> getId();
    // List<Order> getProductName();
   //  List<Order> getPrice();
 

@@ -10,14 +10,14 @@ import java.sql.Time;
 import java.util.Date;
 
 @Entity
-@Table(name="calendar_orders")
+@Table(name="calendar")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 public class Calendar {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @Column(name = "date")
     private Date dateOrder;
@@ -25,11 +25,11 @@ public class Calendar {
     private Time timeOrder;
 
     @ManyToOne
-    @JoinColumns({
-            @JoinColumn(name = "first_name", nullable = false),
-            @JoinColumn(name="last_name", nullable = false),
-            @JoinColumn(name="product_name",  nullable = false)
-    })
-    private Customer customer;
-    private Order order;
+    @JoinColumn(name="order_id", nullable = false)
+    private Order orders;
+
+    @ManyToOne
+    @JoinColumn(name="customer_id", nullable = false)
+    private Customer customers;
+
 }

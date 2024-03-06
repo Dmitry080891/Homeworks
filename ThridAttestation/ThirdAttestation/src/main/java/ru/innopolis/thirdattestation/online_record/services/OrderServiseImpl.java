@@ -20,7 +20,12 @@ public class OrderServiseImpl implements OrderService {
     @Override
     public List<Order> getAll() {
 
-        return orderRepository.findAll(); //Select * from user;
+        return orderRepository.findAll(); //Select * from order;
+    }
+
+    @Override
+    public List<Order> getId() {
+        return orderRepository.findById();  //Select * from order where id =;
     }
 
 
