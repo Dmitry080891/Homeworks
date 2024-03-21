@@ -2,11 +2,17 @@ package ru.innopolis.thirdattestation.online_record.services;
 
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.annotation.Id;
 import org.springframework.stereotype.Service;
+import ru.innopolis.thirdattestation.online_record.dto.CustomerDto;
+import ru.innopolis.thirdattestation.online_record.dto.OrderDto;
+import ru.innopolis.thirdattestation.online_record.exceptions.FileNotFoundException;
 import ru.innopolis.thirdattestation.online_record.models.Order;
 import ru.innopolis.thirdattestation.online_record.repositories.OrderRepository;
 
 import java.util.List;
+
+import static ru.innopolis.thirdattestation.online_record.dto.OrderDto.from;
 
 @Service
 @RequiredArgsConstructor
@@ -14,18 +20,13 @@ public class OrderServiseImpl implements OrderService {
     private final OrderRepository orderRepository;
 
     /**
-     * Получить всех пользователей из БД
-     * @return список пользователей
+     * Получить все услуги из БД
+     * @return список услуг
      */
     @Override
-    public List<Order> getAll() {
-
-        return orderRepository.findAll(); //Select * from order;
-    }
-
-    @Override
-    public List<Order> getId() {
-        return orderRepository.findById();  //Select * from order where id =;
+    public List<OrderDto> getAll() {
+        return from(orderRepository.findAll());
+         //Select * from order;
     }
 
 

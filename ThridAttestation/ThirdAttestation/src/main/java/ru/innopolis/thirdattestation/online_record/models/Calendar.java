@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 
 import java.sql.Time;
 import java.util.Date;
+import java.util.List;
+//import java.util.Calendar;
 
 @Entity
 @Table(name="calendar")
@@ -32,4 +34,6 @@ public class Calendar {
     @JoinColumn(name="customer_id", nullable = false)
     private Customer customers;
 
+    @OneToMany(mappedBy = "calendar")
+    private List<Calendar> calendarList;
 }

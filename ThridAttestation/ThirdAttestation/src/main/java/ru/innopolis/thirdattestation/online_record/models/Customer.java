@@ -18,11 +18,11 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @Column(name = "first_name")
+    @Column(name = "first_name", nullable = false)
     private String firstName;
-    @Column(name = "last_name")
+    @Column(name = "last_name", nullable = false)
     private String lastName;
-    @Column(name = "phone_number")
+    @Column(name = "phone_number", unique = true, nullable = false)
     private Long phone;
 
     @OneToMany(mappedBy = "customers")
