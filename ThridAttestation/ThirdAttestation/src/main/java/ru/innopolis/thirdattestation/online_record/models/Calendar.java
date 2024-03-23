@@ -36,4 +36,8 @@ public class Calendar {
 
     @OneToMany(mappedBy = "calendar")
     private List<Calendar> calendarList;
+
+    private boolean existence;
+
+
 }

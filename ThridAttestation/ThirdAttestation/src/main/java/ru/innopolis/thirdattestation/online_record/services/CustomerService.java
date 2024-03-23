@@ -9,11 +9,11 @@ import java.util.Optional;
 
 public interface CustomerService {
 
-    List<CustomerDto> getAll(); //поиск всех клиентов
+    List<CustomerDto> getCustomerAll(); //поиск всех клиентов
     CustomerDto addCustomer(CustomerDto customer); //добавление клиента
     void deleteAll(); //удаление всех клиентов
-    CustomerDto getById(Long id); //поиск клиента по ИД
-    void deleteById(Long id); //удаление клиента по ИД
+    CustomerDto getCustomerById(Long id); //поиск клиента по ИД
+    void deleteCustomerById(Long id); //удаление клиента по ИД
 
     CustomerDto updateCustomer(Long customerId, CustomerDto newData, boolean changeOnlyName);//изменение данных клиента
 

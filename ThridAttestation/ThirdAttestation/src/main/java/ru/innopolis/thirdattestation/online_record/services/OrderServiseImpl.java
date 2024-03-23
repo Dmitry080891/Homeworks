@@ -24,7 +24,7 @@ public class OrderServiseImpl implements OrderService {
      * @return список услуг
      */
     @Override
-    public List<OrderDto> getAll() {
+    public List<OrderDto> getOrderAll() {
         return from(orderRepository.findAll());
          //Select * from order;
     }

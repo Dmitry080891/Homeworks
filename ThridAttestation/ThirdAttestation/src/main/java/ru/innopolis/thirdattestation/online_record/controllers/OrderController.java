@@ -23,13 +23,10 @@ public class OrderController {
      */
     @GetMapping
     public String getOrderAll(Model model) {
-        model.addAttribute("orders", orderService.getAll());
+        model.addAttribute("orders", orderService.getOrderAll());
         return "orders";}
 
-    public String getOrderID(Model model) {
-        model.addAttribute("orders", orderService.getId());
-        return "orders";
-    }
+
 }
 
 

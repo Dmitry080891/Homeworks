@@ -16,7 +16,7 @@ public class CustomerServiceImpl implements CustomerService{
 
     private final CustomerRepository customerRepository;
     @Override
-    public List<CustomerDto> getAll() {
+    public List<CustomerDto> getCustomerAll() {
         return from(customerRepository.findAll());
 
     }
@@ -29,7 +29,7 @@ public class CustomerServiceImpl implements CustomerService{
 
 
     @Override
-    public CustomerDto getById(Long id) {
+    public CustomerDto getCustomerById(Long id) {
         return from(customerRepository.findById(id).orElseThrow(CustomerNotFoundException::new));
     }
 
@@ -45,7 +45,7 @@ public class CustomerServiceImpl implements CustomerService{
 
 
     @Override
-    public void deleteById(Long id) {
+    public void deleteCustomerById(Long id) {
 
         customerRepository.deleteById(id);
 
